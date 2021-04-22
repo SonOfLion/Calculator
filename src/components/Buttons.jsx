@@ -71,7 +71,6 @@ const Buttons = () => {
     const memoryRead = operator => {
         if(`${operator} === ${"mr"}`){
             setMemory(memory)
-            setValue(value)
             setOperator("mr");
         }
     }
@@ -146,6 +145,18 @@ const Buttons = () => {
 Buttons.propTypes = {
     value: PropTypes.string,
     setValue: PropTypes.func,
+    setOperator: PropTypes.func,
+    setMemory: PropTypes.func,
+    reset: PropTypes.func,
+    equall: PropTypes.func,
+    handleClick: PropTypes.func,
+    sum: PropTypes.func,
+    subtract: PropTypes.func,
+    multiply: PropTypes.func,
+    memoryRead: PropTypes.func,
+    getProcent: PropTypes.func,
+    divide: PropTypes.func,
+    plusMinus: PropTypes.func,
 }
 
 export default Buttons;
