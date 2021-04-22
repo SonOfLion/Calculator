@@ -1,9 +1,13 @@
 import React from 'react';
-import MainBorder from './components/MainBorder';
+import { Provider } from 'react-redux';
+import MainBord from './components/MainBord';
+import store from './store';
 
 const App = () => {
     return (
-        <MainBorder />
+        <Provider store={store}>
+            <MainBord />
+        </Provider>
     )
 }
 
