@@ -54,9 +54,13 @@ const Buttons = () => {
 
     const divide = operator => {
         if(`${operator} === ${"/"}`){
-            setMemory(value)
-            setValue('');
-            setOperator("/");
+            if(value === "0") {
+                return alert('You cant divide on 0!')
+            } else {
+                setMemory(value)
+                setValue('');
+                setOperator("/");
+            }
         }
     }
 
@@ -70,6 +74,23 @@ const Buttons = () => {
 
     const memoryRead = operator => {
         if(`${operator} === ${"mr"}`){
+            setValue(...value)
+            setMemory(memory)
+            setOperator("mr");
+        }
+    }
+
+    const memoryAdd = operator => {
+        if(`${operator} === ${"mr"}`){
+            setValue(...value + memory)
+            setMemory(memory)
+            setOperator("mr");
+        }
+    }
+
+    const memoryDelete = operator => {
+        if(`${operator} === ${"mr"}`){
+            setValue(...value - memory)
             setMemory(memory)
             setOperator("mr");
         }
@@ -99,6 +120,7 @@ const Buttons = () => {
         setMemory(null);
         setOperator(null);
     }
+
     return (
         <>
             <div className="input">
@@ -119,8 +141,8 @@ const Buttons = () => {
                     <button className="btns__numbers" operator="%" onClick={getProcent}>%</button>
                     <button className="btns__numbers" operator="mc" onClick={memoryClean}>mc</button>
                     <button className="btns__numbers" operator="mr" onClick={memoryRead}>mr</button>
-                    <button className="btns__numbers" operator="m-" onClick={handleClick}>m-</button>
-                    <button className="btns__numbers" operator="m+" onClick={handleClick}>m+</button>
+                    <button className="btns__numbers" operator="m-" onClick={memoryDelete}>m-</button>
+                    <button className="btns__numbers" operator="m+" onClick={memoryAdd}>m+</button>
                     <button className="btns__numbers" operator="7" onClick={handleClick}>7</button>
                     <button className="btns__numbers" operator="8" onClick={handleClick}>8</button>
                     <button className="btns__numbers" operator="9" onClick={handleClick}>9</button>
