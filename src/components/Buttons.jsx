@@ -159,4 +159,8 @@ Buttons.propTypes = {
     plusMinus: PropTypes.func,
 }
 
+Buttons.defaultProps = {
+    input: PropTypes.number,
+}
+    
 export default Buttons;
